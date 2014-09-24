@@ -17,10 +17,26 @@
 <body>
 
 <div class="container">
-  <@mid/>
+    <div class="left-row">
+        <div class="list-group">
+            <a class="list-group-item active" href="#">a</a>
+            <a class="list-group-item child" href="${rc.contextPath}">a-1</a>
+            <a class="list-group-item active" href="#">b</a>
+            <a class="list-group-item child" href="${rc.contextPath}">b-1</a>
+        </div>
+    </div>
+    <div class="center-row">
+        <@mid/>
+    </div>
 </div>
-
 </body>
+<style type="text/css">
+    .left-row{
+        width: 200px;
+        float: left;
+    }
+    .child{}
+</style>
 </html>
 
 
