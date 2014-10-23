@@ -32,3 +32,34 @@ for(var i=1;i<=page;i++){
 		$("#page").append("<li><a href='"+url+"'>"+i+"</a></li>");
 }
 //$("#page").append("<li><a href='#'>&raquo;</a></li>");
+
+
+
+//需要当前页码和当前请求每页个数
+//纯js
+var size=$("#contentTable").children("tbody").children("tr").length-1;
+var querySize=parseInt(util.getQueryString("pageSize"));
+var page=parseInt(util.getQueryString("currentPage"));
+
+var lastPage=true;
+var nextPage=false;
+if(querySize==size)
+	nextPage=true;
+if(page==1)
+	lastPage=false;
+
+var url1=util.replaceQueryString('currentPage',page-1);
+var url2=util.replaceQueryString('currentPage',page+1);
+if(lastPage==true)
+	$("#page").append("<li><a href='"+url1+"'>上一页</a></li>");
+
+if(page>5){
+	for(var i=page-5;i<page;i++){
+		var _url=util.replaceQueryString('currentPage',i);
+		$("#page").append("<li><a href='"+_url+"'>"+i+"</a></li>");
+	}
+}
+
+$("#page").append("<li><a class='currentPage' href='"+location.href+"'>"+page+"</a></li>");
+if(nextPage==true)
+	$("#page").append("<li><a href='"+url2+"'>下一页</a></li>");
