@@ -97,4 +97,47 @@ is_node:      node
     <#assign useServer = "http://www.bing.com">
 <#else>
 
+//添加静态页面
+<#include "/copyright_footer.html">
+
+
+If animals or python is missing, the template processing will stop with an "undefined variable" error. 
+To prevent that, you have to write (animals.python.price)!0. 
+In that case the expression will be 0 even if animals or python is missing. 
+Same logic goes for ??; 
+animals.python.price?? versus (animals.python.price)??.
+
+
+
+The suppored types are:
+
+Scalars:
+	String
+	Number
+	Boolean
+	Date-like (date, time, or date-time)
+Containers:
+	Hash
+	Sequence
+	Collection
+Subroutines:
+	Methods and functions
+	User-defined directives
+Miscellaneous/seldom used:
+	Node
+
+//注释
+<#-- The name of user -->}
+
+
+
+//date,time,datetime
+//http://freemarker.org/docs/ref_builtins_date.html#ref_builtin_date_datetype
+
+
+//built-ins
+//http://freemarker.org/docs/ref_builtins.html
+
+//index.html
+//http://freemarker.org/docs/index.html
 
