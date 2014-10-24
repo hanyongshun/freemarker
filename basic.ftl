@@ -92,6 +92,9 @@ is_indexable: sequence
 is_directive: macro or transform
 is_node:      node
 
-
+//获取url中的参数
+<#if RequestParameters.bing?exists >
+    <#assign useServer = "http://www.bing.com">
+<#else>
 
 
