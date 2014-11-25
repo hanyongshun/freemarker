@@ -36,6 +36,15 @@
 	   </tr>
 	</#list>
 </#if>
+//当map的value是list时使用下面这个
+<#list kindsMap?keys as mKey>
+	${mKey}
+	<#assign item = kindsMap[mKey]>   
+ 	<#list item as itemValue>
+		${itemValue.xxx}
+	</#list>
+</#list>
+
 
 //double型数据保留小数点后六位
 ${lists.latitude?string("0.######")}
@@ -68,6 +77,9 @@ ${1305575275540?number_to_datetime} May 16, 2011 3:47:55 PM
 ${1305575275540?number_to_date}     May 16, 2011
 ${1305575275540?number_to_time}     3:47:55 PM
 
+//加括号
+${(list.updateTime!0)?number_to_datetime}
+
 -----------------------------------------------------------------------------------------------
 | 能用freemarker渲染就用freemarker，不要使用js，后期维护代价大                                       |
 | freemarker表现更直接，易于阅读，但是会增加服务器负担，js是在客户端渲染，减轻服务器负担                   |
@@ -96,6 +108,7 @@ is_node:      node
 <#if RequestParameters.bing?exists >
     <#assign useServer = "http://www.bing.com">
 <#else>
+</#if>
 
 //添加静态页面
 <#include "/copyright_footer.html">
@@ -132,12 +145,12 @@ Miscellaneous/seldom used:
 
 
 //date,time,datetime
-//http://freemarker.org/docs/ref_builtins_date.html#ref_builtin_date_datetype
+http://freemarker.org/docs/ref_builtins_date.html#ref_builtin_date_datetype
 
 
 //built-ins
-//http://freemarker.org/docs/ref_builtins.html
+http://freemarker.org/docs/ref_builtins.html
 
 //index.html
-//http://freemarker.org/docs/index.html
+http://freemarker.org/docs/index.html
 
