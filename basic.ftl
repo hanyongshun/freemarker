@@ -154,3 +154,16 @@ http://freemarker.org/docs/ref_builtins.html
 //index.html
 http://freemarker.org/docs/index.html
 
+
+
+
+/**
+ * 为了直接访问ftl
+ */
+@RequestMapping(value="/**/*.do")
+public void direct() {
+	
+}
+
+<#-- 此注释不会出现在页面中 -->
+
